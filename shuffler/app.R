@@ -3,6 +3,8 @@ library(shiny)
 colClasses = c("factor", "numeric")
 col.names = c("Player", "1")
 
+names <-data.frame(names = c("Gordon","Henry","Januar"))
+
 df <- read.table(text = "",
                  colClasses = colClasses,
                  col.names = col.names)
@@ -45,7 +47,7 @@ server <- function(input, output, session) {
   
   observeEvent(input$shuffle, {
     
-    df()$Player <- sample(df()$Player,size=length(df()))
+    
     session$sendCustomMessage(type = 'testmessage',
                               message = 'Thank you for clicking')
   })
